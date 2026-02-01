@@ -1,10 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Connexion - Trail & Montagne</title>
+    <meta name="description" content="Connectez-vous à votre espace membre Trail & Montagne" />
+    <link rel="stylesheet" href="style.css" />
 </head>
-<body>
 
+<body class="login-page">
+<a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+<header>
+    <div class="header-content">
+        <div class="logo-section">
+            <a class="logo" href="index.html" aria-label="Trail & Montagne, retour à l'accueil">
+                <svg viewBox="0 0 80 50" width="80" height="50" aria-hidden="true" focusable="false">
+                    <path d="M8 38 L26 16 L40 30 L52 18 L72 38" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M32 38 C36 34, 44 34, 48 38" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                    <circle cx="50" cy="31" r="3.5" fill="currentColor"/>
+                </svg>
+                <span class="sr-only">Trail & Montagne</span>
+            </a>
+
+            <h1>Trail & Montagne</h1>
+        </div>
+
+        <nav aria-label="Navigation principale">
+            <a href="index.html">Accueil</a>
+            <a href="login.html" aria-current="page">Login</a>
+        </nav>
+    </div>
+</header>
+
+<main id="main-content" tabindex="-1" aria-label="Formulaire de connexion">
+    <div class="login-container">
+        <h2 id="login-title">Connexion</h2>
+        <form action="index.html" method="get">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        autocomplete="username"
+                        required
+                        aria-describedby="email-help"
+                        placeholder="votre@email.com"
+                />
+                <span id="email-help" class="sr-only">
+                    Entrez votre adresse email pour vous connecter
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        autocomplete="current-password"
+                        required
+                        aria-describedby="password-help"
+                        placeholder="••••••••"
+                />
+                <span id="password-help" class="sr-only">
+                    Entrez votre mot de passe
+                </span>
+            </div>
+
+            <button type="submit">
+                Me connecter
+            </button>
+        </form>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <p>© 2026 Trail & Montagne - Tous droits réservés</p>
+    </div>
+</footer>
 </body>
 </html>
