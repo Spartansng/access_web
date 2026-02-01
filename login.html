@@ -11,7 +11,7 @@
 <body class="login-page">
 <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
-<header>
+<header role="banner">
     <div class="header-content">
         <div class="logo-section">
             <a class="logo" href="index.html" aria-label="Trail & Montagne, retour à l'accueil">
@@ -22,21 +22,21 @@
                 </svg>
                 <span class="sr-only">Trail & Montagne</span>
             </a>
-
             <h1>Trail & Montagne</h1>
         </div>
 
-        <nav aria-label="Navigation principale">
+        <nav role="navigation" aria-label="Navigation principale">
             <a href="index.html">Accueil</a>
             <a href="login.html" aria-current="page">Login</a>
         </nav>
     </div>
 </header>
 
-<main id="main-content" tabindex="-1" aria-label="Formulaire de connexion">
+<main id="main-content" tabindex="-1" role="main" aria-label="Formulaire de connexion">
     <div class="login-container">
-        <h2 id="login-title">Connexion</h2>
-        <form action="index.html" method="get">
+        <h2>Connexion</h2>
+
+        <form action="index.html" method="get" aria-labelledby="login-title">
             <div class="form-group">
                 <label for="email">Email</label>
                 <input
@@ -45,6 +45,7 @@
                         name="email"
                         autocomplete="username"
                         required
+                        aria-required="true"
                         aria-describedby="email-help"
                         placeholder="votre@email.com"
                 />
@@ -61,6 +62,7 @@
                         name="password"
                         autocomplete="current-password"
                         required
+                        aria-required="true"
                         aria-describedby="password-help"
                         placeholder="••••••••"
                 />
@@ -69,17 +71,19 @@
                 </span>
             </div>
 
-            <button type="submit">
+            <button type="submit" aria-label="Se connecter au blog">
                 Me connecter
             </button>
         </form>
     </div>
 </main>
 
-<footer>
+<footer role="contentinfo">
     <div class="footer-content">
-        <p>© 2026 Trail & Montagne - Tous droits réservés</p>
+        <p>© 2026 Trail & Montagne - France
+        </p>
     </div>
 </footer>
+
 </body>
 </html>
