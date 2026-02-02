@@ -520,11 +520,13 @@ button[type="submit"]:focus {
 }
 
 /* ============================================
-   FOOTER
+   FOOTER – VERSION ACCESSIBLE
    ============================================ */
-footer {
-    background-color: #1a1a1a;
-    color: #fff;
+
+   footer {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    border-top: 3px solid #1a1a1a;
     padding: 2rem 0;
     margin-top: 4rem;
 }
@@ -538,19 +540,20 @@ footer {
 
 .footer-content p {
     margin: 0;
-    color: #fff;
+    color: #1a1a1a;
+    font-size: 0.95rem;
 }
 
-.footer-content a {
-    color: #c7d2fe;
+footer a {
+    color: #1a1a1a;
     font-weight: 600;
     text-decoration: underline;
 }
 
-.footer-content a:hover,
-.footer-content a:focus {
-    color: #ffffff;
-    outline: 3px solid #c7d2fe;
+footer a:hover,
+footer a:focus {
+    color: #000000;
+    outline: 2px solid #000000;
     outline-offset: 3px;
 }
 
