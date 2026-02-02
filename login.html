@@ -11,7 +11,7 @@
 <body class="login-page">
 <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
-<header role="banner">
+<header>
     <div class="header-content">
         <div class="logo-section">
             <a class="logo" href="index.html" aria-label="Trail & Montagne, retour à l'accueil">
@@ -22,21 +22,21 @@
                 </svg>
                 <span class="sr-only">Trail & Montagne</span>
             </a>
-            <h1>Trail & Montagne</h1>
+            <p class="site-title">Trail & Montagne</p>
         </div>
 
-        <nav role="navigation" aria-label="Navigation principale">
+        <nav aria-label="Navigation principale">
             <a href="index.html">Accueil</a>
             <a href="login.html" aria-current="page">Login</a>
         </nav>
     </div>
 </header>
 
-<main id="main-content" tabindex="-1" role="main" aria-label="Formulaire de connexion">
+<main id="main-content" tabindex="-1">
     <div class="login-container">
-        <h2>Connexion</h2>
+        <h1>Connexion</h1>
 
-        <form action="index.html" method="get" aria-labelledby="login-title">
+        <form action="index.html" method="get">
             <div class="form-group">
                 <label for="email">Email</label>
                 <input
@@ -45,43 +45,72 @@
                         name="email"
                         autocomplete="username"
                         required
-                        aria-required="true"
-                        aria-describedby="email-help"
                         placeholder="votre@email.com"
                 />
-                <span id="email-help" class="sr-only">
-                    Entrez votre adresse email pour vous connecter
-                </span>
+                <span class="field-help">Entrez votre adresse email pour vous connecter</span>
             </div>
 
             <div class="form-group">
                 <label for="password">Mot de passe</label>
-                <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        autocomplete="current-password"
-                        required
-                        aria-required="true"
-                        aria-describedby="password-help"
-                        placeholder="••••••••"
-                />
-                <span id="password-help" class="sr-only">
-                    Entrez votre mot de passe
-                </span>
+                <div class="password-wrapper">
+                    <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            autocomplete="current-password"
+                            required
+                            placeholder="••••••••"
+                    />
+                    <button type="button" class="toggle-password" aria-label="Afficher le mot de passe">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M1 10s3-6 9-6 9 6 9 6-3 6-9 6-9-6-9-6z"/>
+                            <circle cx="10" cy="10" r="3"/>
+                        </svg>
+                    </button>
+                </div>
+                <span class="field-help">Entrez votre mot de passe</span>
             </div>
 
-            <button type="submit" aria-label="Se connecter au blog">
+            <button type="submit">
                 Me connecter
             </button>
+        </form>
+
+        <script>
+            // Règle RGAA 76 - Toggle password visibility
+            const passwordInput = document.getElementById('password');
+            const toggleButton = document.querySelector('.toggle-password');
+            
+            toggleButton.addEventListener('click', function() {
+                const type = passwordInput.type === 'password' ? 'text' : 'password';
+                passwordInput.type = type;
+                
+                if (type === 'text') {
+                    toggleButton.setAttribute('aria-label', 'Masquer le mot de passe');
+                } else {
+                    toggleButton.setAttribute('aria-label', 'Afficher le mot de passe');
+                }
+            });
+        </script>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <p>© 2026 Trail & Montagne - France</p>
+    </div>
+</footer>
+
+</body>
+</html>
         </form>
     </div>
 </main>
 
-<footer role="contentinfo">
+<footer>
     <div class="footer-content">
-        <p>© 2026 Trail & Montagne - France
-        </p>
+        <p>© 2026 Trail & Montagne - France</p>
     </div>
 </footer>
 

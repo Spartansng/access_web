@@ -1,106 +1,23 @@
-/* ==================== BASE ==================== */
-* {
+/* ============================================
+   RESET ET BASE
+   ============================================ */
+   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    min-height: 100vh;
+    color: #1a1a1a;
+    background-color: #f9f9f9;
+    text-align: left;
 }
 
-/* ==================== HEADER & FOOTER ==================== */
-header, footer {
-    background: #fff;
-    padding: 1.5rem 2rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-header { border-bottom: 2px solid #e5e7eb; }
-footer { border-top: 2px solid #e5e7eb; margin-top: 3rem; }
-
-.header-content, .footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.footer-content {
-    text-align: center;
-    color: #666;
-}
-
-.logo-section {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.logo {
-    width: 80px;
-    height: 50px;
-    border: 2px solid #333;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white; /* le SVG utilise currentColor */
-    font-weight: bold;
-    text-decoration: none; /* car <a> */
-}
-
-.logo svg {
-    width: 64px;
-    height: 40px;
-    display: block;
-}
-
-h1 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-/* ==================== NAVIGATION ==================== */
-nav a {
-    text-decoration: none;
-    color: #333;
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: all 0.2s;
-    font-weight: 500;
-}
-
-nav a[aria-current="page"],
-nav a:hover,
-nav a:focus {
-    background: #667eea;
-    color: white;
-    outline: 2px solid #667eea;
-    outline-offset: 2px;
-}
-
-/* ==================== MAIN ==================== */
-main {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 2rem;
-}
-
-/* ==================== ACCESSIBILITÉ ==================== */
+/* ============================================
+   SKIP LINK (accessibilité)
+   ============================================ */
 .skip-link {
     position: absolute;
     top: -40px;
@@ -112,8 +29,13 @@ main {
     z-index: 100;
 }
 
-.skip-link:focus { top: 0; }
+.skip-link:focus {
+    top: 0;
+}
 
+/* ============================================
+   SCREEN READER ONLY
+   ============================================ */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -123,330 +45,474 @@ main {
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
-    border-width: 0;
+    border: 0;
 }
 
-/* ==================== ARTICLES ==================== */
+/* ============================================
+   HEADER
+   ============================================ */
+header {
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 1rem 0;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #0066cc;
+}
+
+.logo svg {
+    display: block;
+}
+
+.site-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav a {
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s;
+}
+
+nav a:hover,
+nav a:focus {
+    border-bottom-color: #0066cc;
+    outline: none;
+}
+
+nav a[aria-current="page"] {
+    border-bottom-color: #0066cc;
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+main:focus {
+    outline: none;
+}
+
+/* Page title (h1) */
+main > h1 {
+    font-size: 2rem;
+    color: #1a1a1a;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+/* ============================================
+   ARTICLES (Homepage)
+   ============================================ */
 article {
     background: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    padding: 2rem;
+    border-radius: 8px;
+    padding: 1.5rem;
     margin-bottom: 2rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     display: grid;
-    grid-template-columns: 1fr 300px;
-    gap: 2rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-article:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+    grid-template-areas:
+        "title image"
+        "text image"
+        "comments image";
 }
 
 article h2 {
+    grid-area: title;
     font-size: 1.5rem;
-    margin-bottom: 1rem;
-    grid-column: 1 / -1;
+    margin-bottom: 0.75rem;
     font-weight: 600;
 }
 
 article h2 a {
-    color: #1a202c;
+    color: #1a1a1a;
     text-decoration: none;
-    transition: color 0.2s;
 }
 
 article h2 a:hover,
 article h2 a:focus {
-    color: #667eea;
-    outline: 2px solid #667eea;
-    outline-offset: 4px;
-    border-radius: 4px;
+    color: #0066cc;
+    text-decoration: underline;
 }
 
 .article-text {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    grid-area: text;
 }
 
 .article-text p {
-    line-height: 1.7;
-    color: #4a5568;
-    text-align: justify;
+    margin-bottom: 0.75rem;
+    color: #333;
+}
+
+.read-more {
+    margin-top: 1rem;
 }
 
 .btn-read-more {
     display: inline-block;
-    color: #667eea;
-    text-decoration: none;
+    color: #0066cc;
     font-weight: 600;
-    padding: 0.5rem 1rem;
-    border: 2px solid #667eea;
-    border-radius: 6px;
-    transition: all 0.2s;
-    margin-top: 0.5rem;
+    text-decoration: none;
+    padding: 0.5rem 0;
 }
 
 .btn-read-more:hover,
 .btn-read-more:focus {
-    background: #667eea;
-    color: white;
-    transform: translateX(4px);
-    outline: 2px solid #667eea;
-    outline-offset: 2px;
+    text-decoration: underline;
 }
 
 .article-image {
-    width: 300px;
-    height: 180px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    grid-area: image;
+    align-self: start;
 }
 
 .article-image img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    border-radius: 4px;
     display: block;
 }
 
 .comments {
-    grid-column: 1 / -1;
-    margin-top: 1rem;
-    font-size: 0.95rem;
-    padding-top: 1rem;
-    border-top: 1px solid #e5e7eb;
+    grid-area: comments;
+    align-self: end;
 }
 
 .comments a {
-    color: #667eea;
+    color: #666;
     text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s;
+    font-size: 0.9rem;
 }
 
 .comments a:hover,
 .comments a:focus {
-    color: #764ba2;
+    color: #0066cc;
     text-decoration: underline;
-    outline: 2px solid #667eea;
-    outline-offset: 2px;
 }
 
-/* ==================== PAGE ARTICLE ==================== */
+/* ============================================
+   ARTICLE PAGE
+   ============================================ */
 .article-page article {
-    padding: 2rem;
-    grid-template-columns: 1fr;
+    display: block;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.article-page h2 { font-size: 2rem; margin-bottom: 1.5rem; color: #1a202c; }
-.article-page h3 { font-size: 1.3rem; margin-top: 2rem; margin-bottom: 1rem; color: #2d3748; }
-
-.article-page .article-text p { margin-bottom: 1rem; line-height: 1.8; }
-.article-page .article-text ul { margin: 1rem 0 1rem 2rem; line-height: 1.8; }
-.article-page .article-text li { margin-bottom: 0.75rem; color: #4a5568; }
-.article-page .article-text strong { color: #2d3748; font-weight: 600; }
-
-/* ==================== COMMENTAIRES ==================== */
-.article-comments {
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 2px solid #e5e7eb;
-}
-
-.article-comments h3 {
-    font-size: 1.3rem;
+.article-page h1 {
+    font-size: 2.25rem;
+    color: #1a1a1a;
     margin-bottom: 1.5rem;
-    color: #2d3748;
+    font-weight: 700;
 }
 
-.comment {
-    background: #f7fafc;
-    border-left: 4px solid #667eea;
-    padding: 1rem 1.5rem;
+.article-page h2 {
+    font-size: 1.5rem;
+    color: #1a1a1a;
+    margin-top: 2rem;
     margin-bottom: 1rem;
-    border-radius: 4px;
-    transition: background 0.2s;
+    font-weight: 600;
 }
 
-.comment:hover { background: #edf2f7; }
+.article-page .article-text ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
 
-.comment-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.article-page .article-text li {
     margin-bottom: 0.5rem;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    color: #333;
 }
 
-.comment-header strong { color: #2d3748; font-size: 0.95rem; }
-.comment-header time { color: #718096; font-size: 0.85rem; }
-.comment p { color: #4a5568; line-height: 1.6; }
-
-/* ==================== TABLEAU ==================== */
+/* ============================================
+   TABLES
+   ============================================ */
 .table-container {
-    margin: 2rem 0;
     overflow-x: auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 2rem 0;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    border: 2px solid #667eea;
-    background: white;
+    background: #fff;
+    border: 1px solid #ddd;
 }
 
 caption {
-    font-size: 1.2rem;
     font-weight: 600;
-    padding: 1rem;
-    text-align: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border: 2px solid #667eea;
+    text-align: left;
+    padding: 0.75rem;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
     border-bottom: none;
+    color: #1a1a1a;
 }
 
-th, td {
-    padding: 1rem;
-    text-align: left;
-    border: 1px solid #cbd5e0;
+thead {
+    background: #0066cc;
+    color: #fff;
 }
 
 th {
-    background: #e0e7ff;
+    padding: 0.75rem;
+    text-align: left;
     font-weight: 600;
-    color: #1a202c;
 }
 
-tbody tr:nth-child(even) { background: #fafafa; }
-tbody tr:hover { background: #f0f4f8; }
+td {
+    padding: 0.75rem;
+    border-top: 1px solid #ddd;
+    color: #333;
+}
 
-/* ==================== LOGIN ==================== */
-.login-page {
-    min-height: 100vh;
+tbody tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+tfoot {
+    background: #f5f5f5;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+tfoot td {
+    padding: 0.75rem;
+    color: #555;
+}
+
+/* ============================================
+   COMMENTS SECTION
+   ============================================ */
+.article-comments {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid #e0e0e0;
+}
+
+.article-comments h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
+}
+
+.comment {
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    border-left: 3px solid #0066cc;
+}
+
+.comment-header {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
 }
 
+.comment-header strong {
+    color: #1a1a1a;
+}
+
+.comment-header time {
+    color: #666;
+}
+
+.comment p {
+    color: #333;
+    line-height: 1.5;
+}
+
+/* ============================================
+   LOGIN PAGE
+   ============================================ */
 .login-page main {
-    flex: 1;
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding: 2rem;
+    align-items: center;
+    min-height: calc(100vh - 200px);
 }
 
 .login-container {
     background: #fff;
-    border: 2px solid #667eea;
-    border-radius: 12px;
-    padding: 3rem 2.5rem;
-    max-width: 450px;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
-    box-shadow: 0 8px 16px rgba(102, 126, 234, 0.2);
+    max-width: 400px;
 }
 
-.login-container h2 {
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
+.login-container h1 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
     text-align: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
 }
 
-.form-group { margin-bottom: 1.5rem; }
+.form-group {
+    margin-bottom: 1.5rem;
+}
 
-label {
+.form-group label {
     display: block;
+    font-weight: 600;
     margin-bottom: 0.5rem;
-    font-weight: 500;
-    font-size: 1rem;
-    color: #2d3748;
+    color: #1a1a1a;
 }
 
-input[type="email"],
-input[type="password"] {
+.form-group input {
     width: 100%;
     padding: 0.75rem;
-    border: 2px solid #e5e7eb;
-    border-radius: 6px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
     font-size: 1rem;
-    font-family: inherit;
-    transition: all 0.2s;
+    transition: border-color 0.2s;
 }
 
-input[type="email"]:hover,
-input[type="password"]:hover {
-    border-color: #cbd5e1;
-}
-
-input[type="email"]:focus,
-input[type="password"]:focus {
+.form-group input:focus {
     outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    border-color: #0066cc;
 }
 
-input[type="email"]:invalid,
-input[type="password"]:invalid {
-    border-color: #ef4444;
+/* Password toggle button (Règle RGAA 76) */
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    padding-right: 3rem;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: #666;
+    transition: color 0.2s;
+}
+
+.toggle-password:hover,
+.toggle-password:focus {
+    color: #0066cc;
+    outline: 2px solid #0066cc;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+.field-help {
+    display: block;
+    font-size: 0.85rem;
+    color: #555;
+    margin-top: 0.25rem;
 }
 
 button[type="submit"] {
     width: 100%;
-    padding: 0.9rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    padding: 0.875rem;
+    background: #0066cc;
+    color: #fff;
     border: none;
-    border-radius: 6px;
+    border-radius: 4px;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s;
-    margin-top: 0.5rem;
+    transition: background-color 0.2s;
 }
 
 button[type="submit"]:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    background: #0052a3;
 }
 
 button[type="submit"]:focus {
-    outline: 2px solid #667eea;
+    outline: 3px solid #99c2ff;
     outline-offset: 2px;
 }
 
-button[type="submit"]:active { transform: translateY(0); }
-
-.success-message {
-    display: none;
-    background: #d1fae5;
-    border: 2px solid #10b981;
-    color: #065f46;
-    padding: 1rem;
-    border-radius: 6px;
-    margin-bottom: 1rem;
-    text-align: center;
-    font-weight: 500;
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 2rem 0;
+    margin-top: 4rem;
 }
 
-.success-message.show { display: block; }
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    text-align: center;
+}
 
-/* ==================== RESPONSIVE ==================== */
+.footer-content p {
+    margin: 0;
+    color: #fff;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
 @media (max-width: 768px) {
-    article { grid-template-columns: 1fr; }
-    .article-image { width: 100%; }
-    .header-content { flex-direction: column; gap: 1rem; }
-    th, td { padding: 0.5rem; font-size: 0.9rem; }
-    .login-container { padding: 2rem 1.5rem; }
+    article {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "title"
+            "image"
+            "text"
+            "comments";
+    }
+
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: center;
+    }
 }
