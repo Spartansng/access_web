@@ -61,7 +61,7 @@
                             required
                             placeholder="••••••••"
                     />
-                    <button type="button" class="toggle-password" aria-label="Afficher le mot de passe">
+                    <button type="button" class="toggle-password" aria-label="Afficher le mot de passe" aria-pressed="false">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                             <path d="M1 10s3-6 9-6 9 6 9 6-3 6-9 6-9-6-9-6z"/>
                             <circle cx="10" cy="10" r="3"/>
@@ -80,11 +80,11 @@
             // Règle RGAA 76 - Toggle password visibility
             const passwordInput = document.getElementById('password');
             const toggleButton = document.querySelector('.toggle-password');
-            
+
             toggleButton.addEventListener('click', function() {
                 const type = passwordInput.type === 'password' ? 'text' : 'password';
                 passwordInput.type = type;
-                
+
                 if (type === 'text') {
                     toggleButton.setAttribute('aria-label', 'Masquer le mot de passe');
                 } else {
