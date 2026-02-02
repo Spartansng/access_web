@@ -564,3 +564,65 @@ footer {
         justify-content: center;
     }
 }
+/* ============================= */
+/* PLAN DU SITE                  */
+/* ============================= */
+
+.sitemap-page {
+    max-width: 900px;
+    margin: 2.5rem auto;
+    padding: 0 2rem;
+}
+
+.sitemap {
+    background: #fff;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.sitemap h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #1a202c;
+}
+
+.sitemap-intro {
+    margin-bottom: 2rem;
+    color: #4a5568;
+    font-size: 1.05rem;
+}
+
+.sitemap-section {
+    margin-bottom: 2rem;
+}
+
+.sitemap-section h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+    color: #2d3748;
+}
+
+.sitemap ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.sitemap li {
+    margin-bottom: 0.6rem;
+}
+
+.sitemap a {
+    text-decoration: none;
+    color: #667eea;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.sitemap a:hover,
+.sitemap a:focus {
+    text-decoration: underline;
+    color: #764ba2;
+    outline: 2px solid #667eea;
+    outline-offset: 3px;
+}

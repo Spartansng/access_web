@@ -1,0 +1,3 @@
+# robots.txt pour Trail & Montagne
+User-agent: *
+Disallow:
