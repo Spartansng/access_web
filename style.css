@@ -541,6 +541,19 @@ footer {
     color: #fff;
 }
 
+.footer-content a {
+    color: #c7d2fe;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.footer-content a:hover,
+.footer-content a:focus {
+    color: #ffffff;
+    outline: 3px solid #c7d2fe;
+    outline-offset: 3px;
+}
+
 /* ============================================
    RESPONSIVE
    ============================================ */
