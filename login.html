@@ -82,10 +82,13 @@
             const toggleButton = document.querySelector('.toggle-password');
 
             toggleButton.addEventListener('click', function() {
-                const type = passwordInput.type === 'password' ? 'text' : 'password';
-                passwordInput.type = type;
+                const isHidden = passwordInput.type === 'password';
+                const newType = isHidden ? 'text' : 'password';
+                passwordInput.type = newType;
 
-                if (type === 'text') {
+                toggleButton.setAttribute('aria-pressed', isHidden ? 'true' : 'false');
+
+                if (newType === 'text') {
                     toggleButton.setAttribute('aria-label', 'Masquer le mot de passe');
                 } else {
                     toggleButton.setAttribute('aria-label', 'Afficher le mot de passe');
